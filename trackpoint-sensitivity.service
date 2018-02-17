@@ -1,0 +1,12 @@
+#!/bin/sh
+
+[Unit]
+Description=Set Trackpoint sensitivity
+Wants=dev-trackpoint1.device
+After=dev-trackpoint1.device
+
+[Service]
+ExecStart=/bin/bash -c 'echo -n 205 > /sys/devices/rmi4-00/rmi4-00.fn03/serio2/sensitivity'
+
+[Install]
+WantedBy=multi-user.target
